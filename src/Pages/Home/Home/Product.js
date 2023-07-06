@@ -1,35 +1,23 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const Product = () => {
+const Product = ({product}) => {
+  const { _id, img, name, price} = product;
+
+  const navigate = useNavigate();
+
+  const navigateToProductDetail = id => {
+    navigate(`/product/${id}`)
+  }
   return (
-    <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-5'>
+    <div>
       <div className="card card-compact  bg-base-100 shadow-xl">
-  <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+  <figure><img src={img} alt="Shoes" /></figure>
   <div className="card-body">
-    <h2 className="card-title">Shoes!</h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
+    <h2 className="card-title text-accent text-2xl">{name}</h2>
+    <p className='text-accent font-bold text-2xl'>$ {price}</p>
     <div className="card-actions justify-end">
-      <button className="btn btn-primary">Buy Now</button>
-    </div>
-  </div>
-</div>
-      <div className="card card-compact w-96 bg-base-100 shadow-xl">
-  <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-  <div className="card-body">
-    <h2 className="card-title">Shoes!</h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
-    <div className="card-actions justify-end">
-      <button className="btn btn-primary">Buy Now</button>
-    </div>
-  </div>
-</div>
-      <div className="card card-compact w-96 bg-base-100 shadow-xl">
-  <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-  <div className="card-body">
-    <h2 className="card-title">Shoes!</h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
-    <div className="card-actions justify-end">
-      <button className="btn btn-primary">Buy Now</button>
+      <button onClick={ () => navigateToProductDetail(_id)} className="btn btn-primary">Buy Now</button>
     </div>
   </div>
 </div>

@@ -4,8 +4,6 @@ import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-fireba
 import auth from '../../../../firebase.init';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { toast, ToastContainer } from 'react-toastify';
-// import google from '../../assets/social/google.png';
 const Login = () => {
   const [ gUser, gError] = useSignInWithGoogle(auth);
   const { register, formState: { errors }, handleSubmit } = useForm();
@@ -33,20 +31,21 @@ const Login = () => {
   }
   const onSubmit = data =>{
     signInWithEmailAndPassword(data.email, data.password);
+    console.log(data);
   };
 
   //***The function has not finished the work*******
   
   return (
-  <div className='flex justify-center items-center'>
-    <div className="h-full  animate__animated animate__zoomIn card w-96 bg-black shadow-xl">
+  <div className='flex justify-center items-center my-20'>
+    <div className="h-full  animate__animated animate__zoomIn card w-96 bg-gray-300 shadow-xl">
   <div className='card  w-96  shadow-2xl'>
   <div className="card-body w-96">
   <h2 className="text-center text-accent text-2xl font-bold">Login</h2>
   <form onSubmit={handleSubmit(onSubmit)}>
         <div className="form-control w-full max-w-xs">
         <label className="label">
-          <span className="label-text">Email</span>
+          <span className="label-text text-black font-bold ">Email</span>
         </label>
         <input 
         type="email"
@@ -70,7 +69,7 @@ const Login = () => {
       </div>
         <div className="form-control w-full max-w-xs">
         <label className="label">
-          <span className="label-text">Password</span>
+          <span className="label-text text-black font-bold">Password</span>
         </label>
         <input 
         type="password" 
@@ -96,19 +95,7 @@ const Login = () => {
       {signInError}
         <input className='btn hover:bg-slate-600 bg-orange-400 w-full max-w-xs uppercase orange-400 text-white font-extrabold' type='submit' value='Login'/>
     </form>
-    <p className='text-accent'>New OnlineExplore? <Link to="/signup" className='text-blue-400'>Create New Account</Link></p>
-    <div className="flex items-center justify-center ">
-        <div className="h-1 bg-gray-300 w-28 rounded-md"></div>
-        <div className="divider">OR</div>
-        <div className="h-1 bg-gray-300 w-28 rounded-md"></div>
-    </div>
-  {/* <button 
-   onClick={() => signInWithGoogle()}
-  className="btn btn-outline bg-lime-500 text-white font-extrabold">
-    <img style={{width: '30px'}} src={google} alt="" />
-        <span className='px-2'>Continue With Google</span>
-    </button> */}
-    <ToastContainer />
+    <p className='text-accent'>New e-Bazaar? <Link to="/signup" className='text-blue-400'>Create New Account</Link></p>
   </div>
   </div>
 </div>
