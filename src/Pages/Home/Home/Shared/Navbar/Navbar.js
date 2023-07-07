@@ -6,6 +6,7 @@ const menuItems = <>
 <li className='text-xl text-whit'><CustomLink className='text-white' to="/">Home</CustomLink></li>
 <li className='text-xl text-whit'><CustomLink className='text-white' to="/about">About</CustomLink></li>
 <li className='text-xl text-whit'><CustomLink className='text-white' to="/all gift vouchers">All Gift Vouchers</CustomLink></li>
+<li className='text-xl text-whit'><CustomLink className='text-white' to="/cart">Cart</CustomLink></li>
 </>
 
 const Navbar = () => {
