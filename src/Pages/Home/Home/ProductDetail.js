@@ -68,7 +68,7 @@ const ProductDetail = () => {
           <Cart
           cart={cart}
           >
-            <Link to='/order'>
+            <Link to='/cart'>
               <button className='text-white bg-lime-400 rounded-lg p-3 mt-5'>Order Review</button>
             </Link>
           </Cart>
@@ -79,9 +79,9 @@ const ProductDetail = () => {
     <h1 className='text-2xl font-bold'>Product Description</h1>
       <p>{product.description}</p>
       </div>
-      {
+      {/* {
         vendible && <BookingModal setVendible={setVendible} vendible={vendible}></BookingModal>
-      }
+      } */}
    </div>
   );
 };
